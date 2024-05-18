@@ -1,0 +1,89 @@
+<mat-card>
+    <mat-card-header fxFlex fxLayout fxLayoutAlign="center">
+        <mat-card-title>
+            <h1>Registration</h1>
+        </mat-card-title>
+    </mat-card-header>
+
+
+    <form [formGroup]="registerGroup" fxFlex fxLayout="column" fxLayoutAlign="center" action="post">
+        <div formGroupName="name" fxFlex fxLayout fxLayoutAlign="center" fxLayout="column">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="firstName">
+                @if (registerGroup.get('name')?.get('firstName')?.hasError('required') ) {
+                <mat-error>Please fill</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput formControlName="lastName">
+                @if (registerGroup.get('name')?.get('lastName')?.hasError('required') ) {
+                <mat-error>Please fill</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+            @if (registerGroup.get('email')?.hasError('email') || registerGroup.get('email')?.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input type="tel" matInput formControlName="phoneNum" placeholder="06705117060">
+            @if (registerGroup.get('phoneNum')?.hasError('required') ) {
+            <mat-error>Please fill</mat-error>
+            }
+            @if (registerGroup.get('phoneNum')?.hasError('minlength') ) {
+            <mat-error>The phonenumber is not good</mat-error>
+            }
+            @if (registerGroup.get('phoneNum')?.hasError('maxlength') ) {
+            <mat-error>The phonenumber is not good</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            @if (registerGroup.get('password')?.hasError('minlength')) {
+            <mat-error>Too short</mat-error>
+            }
+            @if (registerGroup.get('password')?.hasError('required')) {
+            <mat-error>Please fill</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Repassword</mat-label>
+            <input type="password" matInput formControlName="rePassword">
+            @if (registerGroup.get('rePassword')?.hasError('minlength')) {
+            <mat-error>Too short</mat-error>
+            }
+            @if (registerGroup.get('rePassword')?.hasError('required')) {
+            <mat-error>Please fill</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <mat-select formControlName="city" required>
+                <mat-option *ngFor="let city of cityArray" [value]="city">{{city}}</mat-option>
+            </mat-select>
+            @if (registerGroup.get('city')?.hasError('required')) {
+            <mat-error>Please choose a city</mat-error>
+            }
+        </mat-form-field>
+
+        <div fxFlex fxLayout fxLayoutAlign="center" fxLayoutGap="2vw">
+            <button mat-flat-button color="accent" type="submit" (click)="registerFunction()">Registration</button>
+            <button mat-flat-button color="accent" [routerLink]="'/login-signup/login'">Login</button>
+        </div>
+
+    </form>
+
+</mat-card>
+
+<mat-spinner *ngIf="loading" class="own-spinner" color="accent" ></mat-spinner>

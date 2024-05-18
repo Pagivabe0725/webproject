@@ -1,0 +1,28 @@
+<mat-card class="own-cart-card" >
+
+
+<h1 *ngIf="this.cartList===undefined">Nincs termék a kosarában</h1>    
+<table *ngIf="this.cartList!==undefined">
+    <tr>
+        <th>Termék</th>
+        <th>Mennyiség</th>
+        <th>Ár</th>
+    </tr>
+ 
+    <tr *ngFor="let cartItem of cartList let i = index" [ngClass]="i % 2 ===1 ? 'td1' : 'td2'">
+        <td>{{cartItem.name }}</td>
+        <td>{{cartItem.piece + ' ' +(cartItem.name | piece:this.productList)}}</td>
+        <td>{{cartItem.price}}</td>
+    </tr>
+    <tr style="background-color:#683ab7 ">
+        <td colspan="3" style="text-align: center; color:#ffb300 ;">{{'Összesen: ' + getFullPrice()+' Ft'}}</td>
+    </tr>
+</table>
+
+<div fxFlex fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px" style="margin: 2vw;"  *ngIf="this.cartList!==undefined" >
+    <button mat-flat-button color="accent" (click)="back()" >Vissza</button>
+    <button mat-flat-button color="accent" (click)="order()" >Megrendel</button>
+</div>
+
+
+</mat-card>

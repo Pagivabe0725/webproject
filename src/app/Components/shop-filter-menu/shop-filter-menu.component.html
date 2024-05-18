@@ -1,0 +1,32 @@
+<mat-card fxHide.lt-md="xs">
+
+    <div class="own-radio-div">
+        <h1>Zöldség vagy Gyümölcs</h1>
+        <mat-radio-group class="own-radio-div-in" [(ngModel)]="filterType">
+
+            <mat-radio-button color="primary" value="None" >None</mat-radio-button>
+            <mat-radio-button color="primary" value="Gyümölcs">Gyümölcs</mat-radio-button>
+            <mat-radio-button color="primary" value="Zöldség">Zöldség</mat-radio-button>
+
+        </mat-radio-group>
+    </div>
+
+    <div class="own-radio-div">
+
+        <h1>Maximum ár</h1>
+        <div class="own-radio-div-in">
+            <mat-slider  [max]="maxPriceValue" [min]="minPriceValue" step="10"  showTickMarks discrete>
+                <input matSliderThumb  [(ngModel)]="actualPrice" [value]="maxPriceValue" >
+            </mat-slider >
+        </div>
+    </div>
+    <div fxFlex fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="center" >
+    <button mat-flat-button color="accent" (click)="filter()">Szűrés</button>
+    <button mat-flat-button color="accent" (click)="deleteFilter()">Visszaállít</button>
+    <button mat-flat-button color="accent" (click)="deleteCart()" >Kosár kiürítés</button>
+    <button mat-flat-button color="accent" (click)="order()">Rendelés</button>
+
+    <span  [ngStyle]="{'color' :  this.fullPriceInFilter ? '#ffb300' : 'black'}">{{'Jelenlegi Ár: ' + this.fullPriceInFilter +' FT' }}</span>
+    </div>
+
+</mat-card>

@@ -1,0 +1,41 @@
+<mat-card >
+    <mat-card-header fxFlex fxLayout fxLayoutAlign="center">
+        <mat-card-title >
+            <h1>Login</h1>
+        </mat-card-title>
+    </mat-card-header>
+
+
+    <form [formGroup]="loginGroup" fxFlex fxLayout="column" fxLayoutAlign="center">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+            @if (loginGroup.get('email')?.hasError('email') || loginGroup.get('email')?.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            @if (loginGroup.get('password')?.hasError('minlength')) {
+            <mat-error>Too short</mat-error>
+            }
+            @if (loginGroup.get('password')?.hasError('required')) {
+                <mat-error>Please fill</mat-error>
+                }
+        </mat-form-field>
+
+        <div fxFlex fxLayout fxLayoutAlign="center" fxLayoutGap="2vw">
+            <button mat-flat-button color="accent" type="submit" (click)="login()">Login</button>
+            <button mat-flat-button color="accent" [routerLink]="'/login-signup/signup'">Registration</button>
+        </div>
+
+
+    </form>
+
+
+
+</mat-card>
+
+<mat-spinner *ngIf="loading" class="own-spinner" color="accent" ></mat-spinner>

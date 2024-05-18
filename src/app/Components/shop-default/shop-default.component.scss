@@ -1,0 +1,30 @@
+.own-filter-div {
+    height: 100%;
+    position: fixed;
+    width: 30%;
+}
+
+
+.own-spinner{
+    
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.own-spinner::before{
+    content: '';
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100;
+    height: 100;
+    background-color: rgba(0, 0, 0, 0.327);
+    position: fixed;
+}

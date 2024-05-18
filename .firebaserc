@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "web-projekt-fa8c1": {
+      "hosting": {
+        "webproject": [
+          "web-projekt-fa8c1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "web-projekt-fa8c1"
+  }
+}

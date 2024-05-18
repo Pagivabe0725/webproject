@@ -1,0 +1,7 @@
+<div class="own-filter-div">
+    <app-shop-filter-menu [maxPriceValue]="maxPrice" [minPriceValue]="minPrice" (filterValues)="filter($event)"
+        (deleteFilters)="deleteFilters()" [fullPriceInFilter]="fullPrice"></app-shop-filter-menu>
+</div>
+<app-shop-product *ngFor="let item of allProductList" [product]="item"
+    (changePrice)="changeFullPrice($event)"></app-shop-product>
+<mat-spinner *ngIf="loading" class="own-spinner" color="accent"></mat-spinner>

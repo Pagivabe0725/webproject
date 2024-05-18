@@ -1,0 +1,25 @@
+<mat-card >
+
+    <div fxFlex fxLayout="row">
+    <div class="own-card-left-side" fxFlex.gt fxLayoutAlign="center" fxLayout="column">
+        <div fxFlex.gt fxLayoutAlign="center" fxLayout="column">
+            <button mat-icon-button (click)="add()"><mat-icon>add_circle</mat-icon></button>
+            <span class="own-number-product">{{numberOfOrderedProduct}}</span>
+            <button mat-icon-button (click)="minus()"><mat-icon>do_not_disturb_on</mat-icon></button>
+        </div>
+    </div>
+    <div class="own-card-center" >
+        <ul>
+            <li>{{product?.name}}</li>
+            <li ><span [ngClass]="product?.action ? 'action':''">{{product?.price+'Ft/'+product?.quantity}}</span><span *ngIf="product?.action" style="color: red; margin-left: 10px;">{{product?.actionPrice+'Ft/'+product?.quantity}}</span></li>
+            <li>{{product?.from}}</li>  
+        </ul>
+    </div>
+    <div class="own-card-right">
+
+        <img [src]="imageUrl">
+
+    </div>
+    </div>
+
+</mat-card>

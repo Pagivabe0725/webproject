@@ -1,0 +1,62 @@
+$amber : #ffb300;
+
+mat-card {
+    margin-top: 22%;
+    height: 80%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 2px black;
+    background-color: #683ab79c;
+    padding: 1vw;
+}
+
+mat-radio-button{
+    color: white;
+}
+
+.own-radio-div{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: rgba(255, 255, 255, 0.545);
+border-radius: 10px;
+margin-bottom: 2vw;
+}
+.own-radio-div h1 {
+    padding-top: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 1px $amber;
+    font-variant: small-caps;
+    font-size: 2vw;
+}
+
+.own-radio-div-in{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.545);
+    border-radius: 10px;
+
+}
+
+
+@media only screen and (max-width:1200px) {
+    mat-card{
+        margin-top: 25%;
+    }
+}
+
+
+@media only screen and (max-width:1100px) {
+    mat-card{
+        margin-top: 28%;
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    mat-card{
+        margin-top: 30%;
+    }
+}
