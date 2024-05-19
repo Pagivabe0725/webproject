@@ -28,12 +28,16 @@ import { MatBadgeModule } from '@angular/material/badge';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'webproject';
   productInCart: number = 0;
 
-  constructor(private router: Router) {
-    
+  constructor(private router: Router)  {
+     
+  }
+
+  ngOnDestroy(): void {
+    localStorage.removeItem('user')
   }
 
   openSidenav(sidenav: MatDrawer) {
@@ -47,4 +51,11 @@ export class AppComponent {
   navigate(link: string) {
     this.router.navigateByUrl(`/${link}`)
   }
+
+  close(){
+    localStorage.setItem('user',JSON.stringify(null));
+    this.router.navigateByUrl('/login-signup/login')
+  }
+
+
 }

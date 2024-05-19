@@ -32,12 +32,16 @@ export class LoginComponent {
               userInfo => {
                 localStorage.setItem('user',JSON.stringify(userInfo))
                 sub.unsubscribe()
+                if (data.user){
+                this.router.navigateByUrl(`/shop/${data.user.uid}`);
+                }
+                
               },
               error => console.error(error),
               
             )
             //localStorage.setItem('user',data.user.uid);
-            this.router.navigateByUrl(`/shop/${data.user.uid}`);
+            
           }
         },
         error => {
