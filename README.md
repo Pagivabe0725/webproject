@@ -1,27 +1,12 @@
-# Webproject
+## Első lépés
+Első lépésként regisztrálni kell egy felhasználót, hogy be lehessen lépni az alkalmazásba, mivel az authGuard minden oldalt levéd és alapból nincs user az adatbázisban. Miután regisztráltál és  bejelentkeztél már mindenhez hozzáférsz. (Természetesen több felhasználót is lehet regisztrálni)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+## Nincs Shared mappa
+Nem csináltam shared mappát. Minden elem a róla elnevezett mappában található közvetlenül az *app* mappában. Tehát például a modulok a *Modules* mappában, a komponensek a *Components* mappában.
 
-## Development server
+## bug
+Ha alkalmanként hiba lép fel akkor, amikor a kosárba helyezed a terméket, akkor az oldal újratöltése megoldja ezt a gondot. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## deploy-olt alkalmazás
+Itt is fent áll egy olyan bug, hogy, ha újratöltődik az oldal, akkor egy not-found oldalt dob be, ez különösen a kosár kiűrítésére szolgáló gombnál zavaró, mivel itt egy reload() függvény is meghívásra kerül. A függvény ebben az esetben is elvégzi a feladatát, de a not-found oldalra dob a böngésző. Ha újra belépünk akkor láthatóvá válik az eredmény.
