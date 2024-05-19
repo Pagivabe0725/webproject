@@ -12,5 +12,9 @@ export class OrderService {
     return this.afs.collection('Order').add(order);
   }
 
+  getMyOrders(id:string){
+    return this.afs.collection('Order', ref => ref.where('buyerId', '==', id)).valueChanges();
+  }
+
 
 }

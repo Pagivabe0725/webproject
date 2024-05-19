@@ -1,0 +1,57 @@
+.own-account-card{
+    position: absolute;    
+    height: 80%;
+    width: 75%;
+    bottom: 5%;
+    top: 15%;
+    left: 12.5%;
+    right: 12.5%;
+    padding: 0;
+}
+
+
+
+td, th{
+    border:black 2px outset;
+}
+
+th{
+    border:black 2px outset;
+    background-color: #683ab7;
+    border-radius: 2px;
+    box-shadow: #5d33a6 1px 1px 1px;
+    color: white;
+    text-shadow: rgb(242, 100, 100), 2px 2px 2px;
+}
+
+.td1{
+
+    border:black 2px outset;
+    border-radius: 2px;
+    background-color: #ffb300 ;
+}
+
+.td2{
+    border:black 2px outset;
+    border-radius: 2px;
+    background-color: #f5870a ;
+}
+h1{
+    text-align: center;
+}
+
+button{
+    width: 20%;
+}
+
+mat-form-field{
+    height: 70px;
+    width: 50%;
+    align-self: center;
+    
+}
+
+.own-button-div{
+    margin: 0;
+   
+}

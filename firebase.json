@@ -2,8 +2,14 @@
   "hosting": [
     {
       "target": "webproject",
-      "source": ".",
+      "public": "dist/webproject/browser",
       "frameworksBackend": {}
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "/index.html"
     }
   ]
 }

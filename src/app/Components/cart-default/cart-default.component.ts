@@ -68,6 +68,7 @@ export class CartDefaultComponent implements OnInit {
         buyerId: JSON.parse(localStorage.getItem('user') as string).userId,
         price: this.getFullPrice(),
         cart: this.cartList,
+        date: new Date().toString(),
       }
       this.orderService.setOrder(obj).then(
         () => {

@@ -9,7 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule} from '@angular/material/select'
+import { MatSelectModule} from '@angular/material/select';
 import { UserService } from '../../Services/user.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';

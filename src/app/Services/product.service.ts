@@ -26,8 +26,12 @@ export class ProductService {
   }
 
   getProductWithTypeAndPriceFilter(maxPrice: number, type: string) {
-    console.log(maxPrice +'Ezt küldted az árnak, ' + type +" Ezt küldted típusnak")
     return this.afs.collection<Product>('Products', ref => ref.where('type', '==', type).where('actionPrice', '<=', maxPrice)).valueChanges();
+  }
+
+  addProduct(product: Product){
+    return this.afs.collection<Product>('Product').add(product);
+
   }
 
   

@@ -1,1 +1,37 @@
-<p>account-default works!</p>
+<mat-card class="own-account-card">
+
+    <table *ngIf="page==='rendeleseim'">
+        <tr>
+            <th>Időpont</th>
+            <th>Végösszeg</th>
+            <th>Termékek</th>
+        </tr>
+
+        <tr *ngFor="let order of ordersList let i = index" [ngClass]="i % 2 ===1 ? 'td1' : 'td2'">
+            <td>{{order.date | date:'yyyy-MM-dd HH:mm' }}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.cart | orderList}}</td>
+        </tr>
+
+
+    </table>
+
+    <div *ngIf="page==='info'" fxLayout="column" style="align-items: center; text-align: justify;">
+
+        <span>Vezetéknév: <span style="color: #ffb300 ;">{{actualUser.name.firstname}}</span></span>
+        <span>Keresztnév: <span style="color: #ffb300 ;">{{actualUser.name.lastname}}</span></span>
+        <span>Hatáskör: <span style="color: #ffb300 ;">{{actualUser.permission}}</span></span>
+        <span>E-mail: <span style="color: #ffb300 ;">{{actualUser.email}}</span></span>
+        <span>Telefonszám: <span style="color: #ffb300 ;">{{actualUser.phoneNum}}</span></span>
+        <span>Város: <span style="color: #ffb300 ;">{{actualUser.city}}</span></span>
+
+    </div>
+
+  
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px" style="margin: 2vw;" class="own-button-div">
+        <button mat-flat-button color="accent" (click)="changePage('info')">Info</button>
+        <button mat-flat-button color="accent" (click)="changePage('rendeleseim')">Rendeléseim</button>
+    </div>
+
+</mat-card>
